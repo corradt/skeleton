@@ -1,0 +1,26 @@
+
+<p id="notice"><%= notice %></p>
+
+ 
+<div class="row">
+  <div class="col-md-4"><button class="btn btn-primary" type="button">
+  Azioni che devo fare <span class="badge"><%= current_user.tasks.where(state:"to_do").count %></span>
+</button>
+    <%= render @to_do %>
+  </div>
+  <div class="col-md-4"><button class="btn btn-primary" type="button">
+  Azioni che sto svolgendo <span class="badge"><%= current_user.tasks.where(state:"doing").count %></span>
+</button>
+    <%= render @doing %>
+  </div>
+  <div class="col-md-4"><button class="btn btn-primary" type="button">
+  Azioni Completate <span class="badge"><%= current_user.tasks.where(state:"done").count %></span>
+</button>
+    <%= render @done %>
+  </div>
+</div>
+<br>
+<%= link_to 'New Task', new_task_path %>
+
+
+
